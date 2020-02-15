@@ -17,19 +17,20 @@ class CreateSongsTable extends Migration
           Schema::create('songs', function (Blueprint $table) {
               $table->bigIncrements('id');
               $table->string('title');
+              $table->string('artist');
               $table->string('fileName');
               //foreign key artist name
-              $table->unsignedBigInteger('artist_id')->unsigned();
+            // $table->unsignedBigInteger('artist_id')->unsigned();
               //$table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade');
               //foreign key user uploader
-              $table->unsignedBigInteger('user_id')->unsigned();
+            //  $table->unsignedBigInteger('user_id')->unsigned();
               //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
               $table->timestamps();
           });
 
           Schema::table('songs', function($table){
-            $table->foreign('user_id')->references('id')->on('users');
-              $table->foreign('artist_id')->references('id')->on('artists');
+              //$table->foreign('user_id')->references('id')->on('users');
+              //$table->foreign('artist_id')->references('id')->on('artists');
           });
         }
     }

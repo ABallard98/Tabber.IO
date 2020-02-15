@@ -11,18 +11,29 @@
 |
 */
 
+
+//Welcome Page
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/play/{fileName}', function($fileName){
-  return view('play', ['fileName' => $fileName]);
-});
+//Play file page
+Route::get('play/{fileName}', 'PlayController@index');
 
-Route::get('/playhtml', function(){
-  return view('playhtml');
-});
+// Route::get('/play/{fileName}', function($fileName){
+//
+// });
 
-Route::get('songs', function(){
-  return view('songs');
-});
+
+
+
+// //Artist in detail Page
+// Route::get('/artist/{artistName}', function($artistName){
+//   return view('layouts/artistDetails', ['artistName' => $artistName]);
+// });
+
+//Songs Collection Page
+Route::get('songs', 'SongController@index');
+
+//Artist Collection Page
+Route::get('artist/{name}', 'ArtistDetailsController@index');
