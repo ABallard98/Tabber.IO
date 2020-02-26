@@ -24148,7 +24148,7 @@ alphaTab.platform.javaScript.AlphaTabApi = $hx_exports["alphaTab"]["platform"]["
 		this._canvasElement = window.document.createElement("div");
 		this._canvasElement.className = "alphaTabSurface";
 		this._canvasElement.style.fontSize = "0";
-		this._canvasElement.style.overflow = "hidden";
+		this._canvasElement.style.overflow = "visible";
 		this._canvasElement.style.lineHeight = "0";
 		element.appendChild(this._canvasElement);
 		if(settings.Engine == "default" || settings.Engine == "svg") {
@@ -25072,6 +25072,7 @@ alphaTab.platform.javaScript.AlphaTabApi.prototype = {
 				var elementOffset = this.GetOffset(this.Element);
 				var nodeName = scrollElement1.nodeName.toLowerCase();
 				if(nodeName != "html" && nodeName != "body") {
+					console.log("woooo");
 					var scrollElementOffset = this.GetOffset(scrollElement1);
 					elementOffset.Y = elementOffset.Y + scrollElement1.scrollTop - scrollElementOffset.Y;
 					elementOffset.X = elementOffset.X + scrollElement1.scrollLeft - scrollElementOffset.X;

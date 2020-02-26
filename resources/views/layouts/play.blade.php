@@ -9,30 +9,35 @@
         box-sizing: border-box;
       }
 
+      h1,h2,h3,p a {
+        color: white;
+      }
+
       body {
         font-family: Arial, Helvetica, sans-serif;
-        width: 100%;
-        height: 100%;
         background-color: #353C51;
+        margin: 0;
+        padding: 0;
+        overflow-y: hidden;
       }
 
       #alphaTabPlayer {
-        width: 100%;
-        height: 900px;
+        width: 98%;
+        height: 800px;
+        overflow: hidden;
       }
 
       .topnav {
         overflow: hidden;
         background-color: #e9e9e9;
+        width: 98%;
       }
 
       /* Style the links inside the navigation bar */
       .topnav a {
-        float: left;
         display: block;
         color: black;
         text-align: center;
-        padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
       }
@@ -92,6 +97,7 @@
       table, th, td {
         border: 3px;
         width: 100%;
+        height: 100%;
         vertical-align: top;
       }
 
@@ -109,23 +115,24 @@
         background-image: url('/css/searchicon.png'); /* Add a search icon to input */
         background-position: 10px 12px; /* Position the search icon */
         background-repeat: no-repeat; /* Do not repeat the icon image */
-        width: 100%; /* Full-width */
+        width: 90%; /* Full-width */
         font-size: 16px; /* Increase font-size */
-        padding: 12px 20px 12px 40px; /* Add some padding */
         border: 1px solid #ddd; /* Add a grey border */
         margin-bottom: 12px; /* Add some space below the input */
+        margin-left: 10px;
       }
 
       #searchResults {
-      border-collapse: collapse; /* Collapse borders */
-      width: 100%; /* Full-width */
-      border: 1px solid #ddd; /* Add a grey border */
-      font-size: 18px; /* Increase font-size */
-    }
+        border-collapse: collapse; /* Collapse borders */
+        width: 100%; /* Full-width */
+        border: 1px solid #ddd; /* Add a grey border */
+        font-size: 18px; /* Increase font-size */
+      }
 
     #searchResults th, #searchResults td {
       text-align: left; /* Left-align text */
       padding: 12px; /* Add padding */
+      width: 100%;
     }
 
     #searchResults tr {
@@ -207,6 +214,22 @@
   </head>
   <body>
 
+    <h1>Welcome to Tabber.io</h1>
+
+    <p>
+      <a href="/"> Home, </a>
+      <a href="/artists"> Artists, </a>
+      <a href="/songs"> Songs </a>
+    </p>
+
+    <!-- Script to resize iframe of player upon loading -->
+    <script>
+      function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+      }
+    </script>
+
+    <!-- Table to contain search results for search bar -->
     <table>
       <tr>
         <td id="playerTable">
@@ -214,14 +237,11 @@
               <input id="searchBar" onkeyup="updateSearch()" type="text" placeholder="Search...">
               @yield('songTable');
           </div>
-          <iframe id="alphaTabPlayer" src="{{asset('player\player.html')}}" ></iframe>
-        </td>
-        <td>
-          <div class="sidenav">
-            <p> Tags: </p>
-          </div>
-        </td>
       </tr>
     </table>
+
+    <!-- iframe for player -->
+    <iframe id="alphaTabPlayer" src="{{asset('player\player.html')}}"></iframe>
+
   </body>
 </html>

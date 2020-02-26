@@ -158,7 +158,7 @@
             autoScroll: true,
             scrollSpeed: 300,
             scrollOffset: -30,
-            scrollElement: '#alphaTab',
+            scrollElement: 'html,body',
             scrollAdjustment: 0,
             beatCursorWidth: 3,
             handleClick: true

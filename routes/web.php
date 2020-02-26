@@ -12,25 +12,18 @@
 */
 
 
-//Welcome Page
-Route::get('/', function () {
-    return view('welcome');
-});
+//Home Page
+Route::get('/', 'HomeController@index');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //Play file page
 Route::get('play/{fileName}', 'PlayController@index');
 
-// Route::get('/play/{fileName}', function($fileName){
-//
-// });
-
-
-
-
-// //Artist in detail Page
-// Route::get('/artist/{artistName}', function($artistName){
-//   return view('layouts/artistDetails', ['artistName' => $artistName]);
-// });
+//Artist Collection page
+Route::get('artists', 'ArtistController@index');
 
 //Songs Collection Page
 Route::get('songs', 'SongController@index');
